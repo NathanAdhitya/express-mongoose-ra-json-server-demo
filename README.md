@@ -13,7 +13,7 @@ To run this project locally, you may follow these steps.
 ### Setup the project files
 Run these commands to clone and install dependencies:
 ```sh
-git clone https://github.com/NathanAdhitya/express-mongoose-ra-json-server.git .
+git clone https://github.com/NathanAdhitya/express-mongoose-ra-json-server-demo.git .
 npm install
 ```
 
