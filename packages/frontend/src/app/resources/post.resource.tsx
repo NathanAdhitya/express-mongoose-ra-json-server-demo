@@ -31,6 +31,9 @@ const filters = [
   <ReferenceInput source="userId" reference="user" label="Writer">
     <AutocompleteInput optionText="name" optionValue="id" label="Writer" />
   </ReferenceInput>,
+  <ReferenceInput source="reviewerUserId" reference="user" label="Reviewer">
+    <AutocompleteInput optionText="name" optionValue="id" label="Reviewer" />
+  </ReferenceInput>,
 ];
 
 const ResourceList: React.FC = (props) => {
@@ -38,6 +41,13 @@ const ResourceList: React.FC = (props) => {
     <List {...props} filters={filters}>
       <Datagrid>
         <ReferenceField source="userId" reference="user" label="Writer">
+          <TextField source="name" />
+        </ReferenceField>
+        <ReferenceField
+          source="reviewerUserId"
+          reference="user"
+          label="Reviewer"
+        >
           <TextField source="name" />
         </ReferenceField>
         <TextField source="title" />
@@ -58,6 +68,13 @@ const ResourceCreate: React.FC<CreateProps> = (props: CreateProps) => {
             validate={[required()]}
           />
         </ReferenceInput>
+        <ReferenceInput source="reviewerUserId" reference="user">
+          <AutocompleteInput
+            optionText="name"
+            optionValue="id"
+            label="Reviewer"
+          />
+        </ReferenceInput>
         <TextInput source="title" validate={[required()]} />
         <RichTextInput source="content" validate={[required()]} />
       </SimpleForm>
@@ -69,11 +86,19 @@ const ResourceEdit: React.FC<EditProps> = (props: EditProps) => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <ReferenceInput source="userId" reference="user" label="Writer">
+        <ReferenceInput source="userId" reference="user">
           <AutocompleteInput
             optionText="name"
             optionValue="id"
             validate={[required()]}
+            label="Writer"
+          />
+        </ReferenceInput>
+        <ReferenceInput source="reviewerUserId" reference="user">
+          <AutocompleteInput
+            optionText="name"
+            optionValue="id"
+            label="Reviewer"
           />
         </ReferenceInput>
         <TextInput source="title" validate={[required()]} />
@@ -89,6 +114,13 @@ const ResourceShow: React.FC<ShowProps> = (props) => {
         <ReferenceField source="userId" reference="user" label="Writer">
           <TextField source="name" />
         </ReferenceField>
+        <ReferenceInput
+          source="reviewerUserId"
+          reference="user"
+          label="Reviewer"
+        >
+          <TextField source="name" label="Reviewer" />
+        </ReferenceInput>
         <TextField source="title" />
         <RichTextField source="content" />
       </SimpleShowLayout>
