@@ -8,6 +8,11 @@ const postSchema: Schema = new Schema({
     required: true,
     index: true,
   },
+  reviewerUserId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+  },
   title: {
     type: String,
     required: true,
