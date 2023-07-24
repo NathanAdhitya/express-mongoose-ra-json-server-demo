@@ -48,7 +48,7 @@
     "@mui/material": "^5.10.2",
     "core-js": "^3.6.5",
     "express": "^4.17.2",
-    "express-mongoose-ra-json-server": "^0.1.0",
+    "express-mongoose-ra-json-server": "^0.2.1",
     "mongoose": "^6.5.3",
     "morgan": "^1.10.0",
     "prop-types": "^15.8.1",

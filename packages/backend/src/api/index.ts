@@ -9,6 +9,7 @@ router.use(
   raExpressMongoose(userModel, {
     q: ['name', 'username'],
     allowedRegexFields: ['company'],
+    useLean: false,
   })
 );
 router.use('/post', raExpressMongoose(postModel, { q: ['title'] }));
